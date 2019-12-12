@@ -1,5 +1,7 @@
 click
 python-dateutil
+flask-cors
 Flask
 PyYAML
 unicodecsv
+GDAL

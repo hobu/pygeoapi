@@ -1,0 +1,38 @@
+service: pygeoapi
+
+provider:
+  name: aws
+  runtime: python3.8
+  stage: prod
+  region: us-east-1
+  apiGateway:
+    binaryMediaTypes:
+      - '*/*'
+
+plugins:
+  - serverless-wsgi
+  - serverless-python-requirements
+  - serverless-apigwy-binary
+
+
+custom:
+  pythonRequirements:
+    dockerizePip: true
+  apigwBinary:
+    types:           #list of mime-types
+      - 'image/png'
+      - 'image/jpeg'
+  wsgi:
+    app: pygeoapi.flask_app.APP
+    packRequirements: false
+functions:
+  app:
+    handler: wsgi.handler
+    environment:
+        PYGEOAPI_OPENAPI: /var/task/openapi.yml
+        PYGEOAPI_CONFIG: /var/task/local.config.yml
+    events:
+      - http: 'ANY /'
+      - http: 'ANY {proxy+}'
+    layers:
+      - arn:aws:lambda:us-east-1:163178234892:layer:pdal:21
