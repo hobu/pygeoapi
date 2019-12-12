@@ -18,6 +18,7 @@ plugins:
 custom:
   pythonRequirements:
     dockerizePip: true
+    dockerImage: pdal-lambda:latest
   apigwBinary:
     types:           #list of mime-types
       - 'image/png'
