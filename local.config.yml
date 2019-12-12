@@ -131,7 +131,8 @@ datasets:
                 end: null  # or empty (either means open ended)
         provider:
             name: OGR
-            data: /var/task/resources.geojson
+            data:
+                source: /var/task/resources.geojson
                 gdal_ogr_options:
                     EMPTY_AS_NULL: NO
                     GDAL_CACHEMAX: 64
@@ -139,6 +140,7 @@ datasets:
                     # GDAL_PROXY_AUTH: (optional auth for remote WFS)
                     CPL_DEBUG: NO
             id_field: id
+            layer: lidar
 processes:
     hello-world:
         processor:
