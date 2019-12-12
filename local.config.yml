@@ -142,7 +142,7 @@ datasets:
                     # GDAL_PROXY_AUTH: (optional auth for remote WFS)
                     CPL_DEBUG: NO
             id_field: id
-            layer: lidar
+            layer: resources
 processes:
     hello-world:
         processor:
