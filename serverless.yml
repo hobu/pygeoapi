@@ -32,8 +32,8 @@ functions:
     environment:
         PYGEOAPI_OPENAPI: /var/task/openapi.yml
         PYGEOAPI_CONFIG: /var/task/local.config.yml
-        PROJ_LIB: /var/task/share/proj
-        GDAL_DATA: /var/task/share/gdal
+        PROJ_LIB: /opt/share/proj
+        GDAL_DATA: /opt/share/gdal
     events:
       - http: 'ANY /'
       - http: 'ANY {proxy+}'
