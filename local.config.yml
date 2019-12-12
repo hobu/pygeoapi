@@ -133,6 +133,8 @@ datasets:
             name: OGR
             data:
                 source: /var/task/resources.geojson
+                source_type: GeoJSON
+                source_srs: EPSG:4326
                 gdal_ogr_options:
                     EMPTY_AS_NULL: NO
                     GDAL_CACHEMAX: 64
